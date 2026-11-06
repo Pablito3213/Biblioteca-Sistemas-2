@@ -46,7 +46,7 @@ body > * {
 }
 
 .nombre-biblioteca {
-    background-color: beige;
+    background-color:aquamarine;
     color: cadetblue;
     padding: 10px 20px;
     border-radius: 11px;
@@ -255,6 +255,29 @@ body > * {
     color: white;
     width: 85%;
     max-width: 1100px;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+/* Usuarios */
+.usuario-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.usuario-ventana {
+    background-color: white;
+    color: black;
+    width: 85%;
+    max-width: 900px;
     padding: 30px;
     border-radius: 15px;
 }

@@ -5,6 +5,7 @@ import Login from './loguing.jsx';
 import Socios from './socios.jsx';
 import Libro from './libros.jsx';
 import Pagos from './pagos.jsx';
+import { Usuario } from './usuario.jsx';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
   const [mostrarSocios, setMostrarSocios] = useState(false);
   const [mostrarLibros, setMostrarLibros] = useState(false);
   const[mostrarPagos, setMostrarPagos] = useState(false)
+  const [mostrarUsuario, setMostrarUsuario] = useState(false);
 
   if (!logeado) {
     return <Login onLoginSuccess={() => setLogeado(true)} />;
@@ -70,10 +72,16 @@ function App() {
         onClick={() => setMostrarPagos(true)}
     >
         🪙 Pagos
-    </button>
+      </button>
+
+      <button
+      className="btn-gestion"
+      onClick={() => setMostrarUsuario(true)}
+>
+        🕵 Usuarios
+      </button>
 
 
-        <button className="btn-gestion">🕵 Usuarios</button>
         <button className="btn-gestion">📚 Prestamos</button>
         <button className="btn-gestion">📝 Devolucion</button>
 
@@ -99,7 +107,13 @@ function App() {
 
       {mostrarPagos && (
     <Pagos cerrar={() => setMostrarPagos(false)} />
-)}
+      )}
+
+      {mostrarUsuario && (
+    <Usuario
+        cerrar={() => setMostrarUsuario(false)}
+    />
+      )}
 
     </div>
   );
