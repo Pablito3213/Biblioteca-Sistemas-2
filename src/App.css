@@ -1,14 +1,30 @@
-
-/* PANTALLA PRINCIPAL */
+/* ==========================================
+   PANTALLA PRINCIPAL - FONDO DE LA BIBLIOTECA
+   ========================================== */
 
 body {
-    font-family: Arial, sans-serif;
-    background-image: url("https://static.nationalgeographicla.com/files/styles/image_3200/public/001-library-biblioteca-real-gabinete-de-leitura-rio-de-janeiro-brasile_0016.jpg?w=1900&h=1425");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* Combinamos el filtro oscuro del 45% junto con la foto correcta de tus lentes */
+   background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
+    url("https://www.educaciontrespuntocero.com/wp-content/uploads/2025/06/Libros-en-los-que-las-bibliotecas-son-las-protagonistas.jpg");
+    
+    background-size: contain;    /* Achica la foto para que se aprecie completa sin recortarse */
+    background-repeat: no-repeat; /* Evita que la imagen se duplique como mosaico */
+    background-position: center;  /* Centra los libros en la pantalla */
+    background-color: #1a1a1a;    /* Color oscuro de fondo para rellenar los bordes laterales vacíos */
+    
+    /* Aseguramos el tamaño completo de la pantalla del navegador */
     margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Asegura que todo el contenido (textos, botones) se posicione por encima de la capa oscura */
+body > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* CONTENEDOR PRINCIPAL */
@@ -94,7 +110,7 @@ body {
 }
 
 .btn-gestion {
-    background-color: #137e4c;
+    background-color: grey;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -109,7 +125,6 @@ body {
 }
 
 .btn-gestion:hover {
-    background-color: #1b9e61;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
@@ -189,7 +204,6 @@ body {
     z-index: 1050;
 }
 
-
 .modal {
     position: fixed;
     top: 0;
@@ -197,11 +211,9 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     z-index: 9999;
 }
 
@@ -221,4 +233,28 @@ body {
     cursor: pointer;
     font-weight: bold;
     font-size: 20px;
+}
+
+/* PAGOS */
+
+.pagos-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.pagos-ventana {
+    background-color: #111;
+    color: white;
+    width: 85%;
+    max-width: 1100px;
+    padding: 30px;
+    border-radius: 15px;
 }

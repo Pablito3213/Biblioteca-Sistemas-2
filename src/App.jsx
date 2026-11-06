@@ -1,16 +1,17 @@
-
- // COMPONENTE PRINCIPAL
+// COMPONENTE PRINCIPAL
 
 import React, { useState } from 'react';
 import Login from './loguing.jsx';
 import Socios from './socios.jsx';
 import Libro from './libros.jsx';
+import Pagos from './pagos.jsx';
 
 function App() {
 
   const [logeado, setLogeado] = useState(false);
   const [mostrarSocios, setMostrarSocios] = useState(false);
   const [mostrarLibros, setMostrarLibros] = useState(false);
+  const[mostrarPagos, setMostrarPagos] = useState(false)
 
   if (!logeado) {
     return <Login onLoginSuccess={() => setLogeado(true)} />;
@@ -64,8 +65,15 @@ function App() {
           📖 Libro
         </button>
 
+        <button
+        className="btn-gestion"
+        onClick={() => setMostrarPagos(true)}
+    >
+        🪙 Pagos
+    </button>
+
+
         <button className="btn-gestion">🕵 Usuarios</button>
-        <button className="btn-gestion">🪙 Pagos</button>
         <button className="btn-gestion">📚 Prestamos</button>
         <button className="btn-gestion">📝 Devolucion</button>
 
@@ -89,10 +97,12 @@ function App() {
         <Libro cerrar={() => setMostrarLibros(false)} />
       )}
 
+      {mostrarPagos && (
+    <Pagos cerrar={() => setMostrarPagos(false)} />
+)}
+
     </div>
   );
 }
 
 export default App;
-
-

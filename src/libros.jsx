@@ -44,6 +44,7 @@ export default function Libro({ cerrar, alBuscar }) {
                   onClick={manejarCierre} 
                   aria-label="Close"
                 ></button>
+
               </div>
               
               <div className="modal-body text-center px-4 pb-5">
