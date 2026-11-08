@@ -36,16 +36,9 @@ export default function Libro({ cerrar, alBuscar }) {
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
               
-              {/* ACCIÓN DE LA X: Al hacer clic ejecuta manejarCierre */}
-              <div className="modal-header border-0 pb-0 pt-4 px-4 position-relative">
-                <button 
-                  type="button" 
-                  className="btn-close position-absolute top-0 end-0 m-3" 
-                  onClick={manejarCierre} 
-                  aria-label="Close"
-                ></button>
+            
 
-              </div>
+  
               
               <div className="modal-body text-center px-4 pb-5">
                 <h3 className="fw-bold text-dark mb-4">¿Qué libro deseas buscar?</h3>
@@ -64,14 +57,15 @@ export default function Libro({ cerrar, alBuscar }) {
                       onChange={(e) => setTerminoBusqueda(e.target.value)}
                     />
                     
-                    {/* BOTÓN BUSCAR: Al ser type="submit", activa el onSubmit del form */}
+                    <div className="mt-5">
                     <button 
-                      className="btn btn-success px-4 fs-6 fw-medium d-flex align-items-center" 
-                      type="submit" 
-                      style={{ backgroundColor: '#157347' }}
+                      type="button"
+                      className="btn btn-secondary px-4"
+                      onClick={manejarCierre}
                     >
-                      Buscar
+                      Cerrar
                     </button>
+                  </div>
                   </div>
                 </form>
               </div>

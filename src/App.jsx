@@ -1,19 +1,25 @@
 // COMPONENTE PRINCIPAL
 
+// COMPONENTE PRINCIPAL
+
 import React, { useState } from 'react';
 import Login from './loguing.jsx';
 import Socios from './socios.jsx';
 import Libro from './libros.jsx';
 import Pagos from './pagos.jsx';
 import { Usuario } from './usuario.jsx';
+import Devoluciones from './devoluciones.jsx';
+import Prestamos from './prestamos.jsx';
 
 function App() {
 
-  const [logeado, setLogeado] = useState(false);
-  const [mostrarSocios, setMostrarSocios] = useState(false);
-  const [mostrarLibros, setMostrarLibros] = useState(false);
-  const[mostrarPagos, setMostrarPagos] = useState(false)
-  const [mostrarUsuario, setMostrarUsuario] = useState(false);
+    const [logeado, setLogeado] = useState(false);
+    const [mostrarSocios, setMostrarSocios] = useState(false);
+    const [mostrarLibros, setMostrarLibros] = useState(false);
+    const [mostrarPagos, setMostrarPagos] = useState(false);
+    const [mostrarUsuario, setMostrarUsuario] = useState(false);
+    const [mostrarDevoluciones, setMostrarDevoluciones] = useState(false);
+    const [mostrarPrestamos, setMostrarPrestamos] = useState(false);
 
   if (!logeado) {
     return <Login onLoginSuccess={() => setLogeado(true)} />;
@@ -81,9 +87,20 @@ function App() {
         🕵 Usuarios
       </button>
 
+      <button
+      className='btn-gestion'
+        onClick={() => setMostrarDevoluciones(true)}
+    >
+       ✅ Devoluciones
+    </button>
 
-        <button className="btn-gestion">📚 Prestamos</button>
-        <button className="btn-gestion">📝 Devolucion</button>
+    <button
+    className="btn-gestion"
+    onClick={() => setMostrarPrestamos(true)}
+>
+    📚 Préstamos
+  </button>
+
 
         <button
           className="btn-gestion btn-cerrar"
@@ -114,6 +131,17 @@ function App() {
         cerrar={() => setMostrarUsuario(false)}
     />
       )}
+
+      {/* VENTANA DE DEVOLUCIONES */}
+      {mostrarDevoluciones && (
+    <Devoluciones
+        cerrar={() => setMostrarDevoluciones(false)}
+    />
+    )}
+    <Prestamos
+    mostrar={mostrarPrestamos}
+    cerrar={() => setMostrarPrestamos(false)}
+/>
 
     </div>
   );
